@@ -361,6 +361,19 @@
   <script>
     const status = document.getElementById("status");
 
+    function resolvePageUrl(filename) {
+      const base = new URL(window.location.href);
+      const lastPathSegment = base.pathname.slice(base.pathname.lastIndexOf("/") + 1);
+
+      if (/\.html?$/i.test(lastPathSegment)) {
+        base.pathname = base.pathname.slice(0, base.pathname.lastIndexOf("/") + 1);
+      } else if (!base.pathname.endsWith("/")) {
+        base.pathname += "/";
+      }
+
+      return new URL(filename, base);
+    }
+
     function handleCredentialResponse(response) {
       if (!response || !response.credential) {
         status.dataset.state = "error";
@@ -368,7 +381,7 @@
         return;
       }
 
-      window.location.assign("accueil.html");
+      window.location.replace(resolvePageUrl("accueil.html").href);
     }
 
     window.addEventListener("load", () => {

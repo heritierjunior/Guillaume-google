@@ -347,12 +347,25 @@
   </main>
 
   <script>
+    function resolvePageUrl(filename) {
+      const base = new URL(window.location.href);
+      const lastPathSegment = base.pathname.slice(base.pathname.lastIndexOf("/") + 1);
+
+      if (/\.html?$/i.test(lastPathSegment)) {
+        base.pathname = base.pathname.slice(0, base.pathname.lastIndexOf("/") + 1);
+      } else if (!base.pathname.endsWith("/")) {
+        base.pathname += "/";
+      }
+
+      return new URL(filename, base);
+    }
+
     document.getElementById("logout-button").addEventListener("click", () => {
       if (window.google && window.google.accounts && window.google.accounts.id) {
         window.google.accounts.id.disableAutoSelect();
       }
 
-      window.location.assign("index.html");
+      window.location.replace(resolvePageUrl("index.html").href);
     });
   </script>
 </body>
