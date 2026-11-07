@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f5f7fc">
+  <title>Accueil — Guille Connect</title>
+  <style>
+    :root {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #17233c;
+      background: #f5f7fc;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      padding: 24px;
+      place-items: center;
+      background:
+        radial-gradient(ellipse at 14% 12%, rgb(179 198 255 / 28%), transparent 31rem),
+        radial-gradient(ellipse at 94% 88%, rgb(191 229 255 / 34%), transparent 28rem),
+        #f5f7fc;
+    }
+
+    main {
+      width: min(100%, 560px);
+      padding: clamp(32px, 7vw, 64px);
+      text-align: center;
+      background: #fff;
+      border: 1px solid rgb(222 229 241 / 85%);
+      border-radius: 28px;
+      box-shadow: 0 32px 90px rgb(29 49 91 / 13%), 0 3px 12px rgb(29 49 91 / 4%);
+    }
+
+    .success-icon {
+      display: grid;
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 26px;
+      place-items: center;
+      color: #14804a;
+      background: #e8f7ef;
+      border: 1px solid #d5f0e0;
+      border-radius: 22px;
+    }
+
+    .success-icon svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #6a7892;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 7vw, 2.6rem);
+      letter-spacing: -0.055em;
+      line-height: 1.15;
+    }
+
+    .intro {
+      margin: 16px 0 28px;
+      color: #748099;
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      color: #16794b;
+      background: #effaf3;
+      border: 1px solid #dff3e6;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 650;
+    }
+
+    .badge::before {
+      width: 7px;
+      height: 7px;
+      background: #22a365;
+      border-radius: 50%;
+      content: "";
+    }
+
+    a {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+      padding: 0 22px;
+      color: #fff;
+      background: #203d78;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 650;
+      text-decoration: none;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    a:hover {
+      background: #172f61;
+    }
+
+    a:active {
+      transform: translateY(1px);
+    }
+
+    a:focus-visible {
+      outline: 3px solid #9ab2ff;
+      outline-offset: 3px;
+    }
+
+    .note {
+      margin: 26px 0 0;
+      color: #9aa4b6;
+      font-size: 0.73rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="success-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="m5 12.5 4.5 4.5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <p class="eyebrow">Guille Connect</p>
+    <h1>Connexion réussie !</h1>
+    <p class="intro">Bienvenue dans votre espace. Vous êtes connecté avec votre compte Google.</p>
+    <span class="badge">Connexion confirmée par Google</span>
+    <div><a href="index.html">Retour à la connexion</a></div>
+    <p class="note">Démo : la validation du jeton côté serveur n’est pas encore configurée.</p>
+  </main>
+</body>
+</html>

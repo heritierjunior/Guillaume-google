@@ -261,84 +261,6 @@
       line-height: 1.6;
     }
 
-    .success-content {
-      text-align: center;
-    }
-
-    .success-icon {
-      display: grid;
-      width: 68px;
-      height: 68px;
-      margin: 0 auto 26px;
-      place-items: center;
-      color: #14804a;
-      background: #e8f7ef;
-      border: 1px solid #d5f0e0;
-      border-radius: 22px;
-    }
-
-    .success-icon svg {
-      width: 34px;
-      height: 34px;
-    }
-
-    .success-content h2 {
-      font-size: clamp(1.9rem, 4vw, 2.35rem);
-    }
-
-    .success-content .form-intro {
-      margin-bottom: 26px;
-    }
-
-    .success-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      color: #16794b;
-      background: #effaf3;
-      border: 1px solid #dff3e6;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 650;
-    }
-
-    .success-badge::before {
-      width: 7px;
-      height: 7px;
-      background: #22a365;
-      border-radius: 50%;
-      content: "";
-    }
-
-    .return-button {
-      width: 100%;
-      min-height: 48px;
-      margin-top: 30px;
-      color: #fff;
-      background: #203d78;
-      border: 0;
-      border-radius: 12px;
-      font: inherit;
-      font-size: 0.9rem;
-      font-weight: 650;
-      cursor: pointer;
-      transition: background 160ms ease, transform 160ms ease;
-    }
-
-    .return-button:hover {
-      background: #172f61;
-    }
-
-    .return-button:active {
-      transform: translateY(1px);
-    }
-
-    .return-button:focus-visible {
-      outline: 3px solid #9ab2ff;
-      outline-offset: 3px;
-    }
-
     @media (max-width: 760px) {
       body {
         padding: 18px;
@@ -432,27 +354,12 @@
           <p class="form-footer">Projet de démonstration. Pour protéger des comptes et des données en production, le jeton doit être vérifié côté serveur.</p>
         </div>
 
-        <div id="success-content" class="success-content" role="status" aria-live="polite" hidden>
-          <div class="success-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="m5 12.5 4.5 4.5L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <p class="form-label">Authentification Google</p>
-          <h2 id="success-title" tabindex="-1">Connexion réussie !</h2>
-          <p class="form-intro">La connexion à votre compte Google a réussi. Bienvenue dans votre espace.</p>
-          <span class="success-badge">Connexion confirmée par Google</span>
-          <button class="return-button" id="return-button" type="button">Retour à l’accueil</button>
-          <p class="form-footer">Démo : la validation du jeton côté serveur n’est pas encore configurée.</p>
-        </div>
       </div>
     </section>
   </main>
 
   <script>
     const status = document.getElementById("status");
-    const loginContent = document.getElementById("login-content");
-    const successContent = document.getElementById("success-content");
 
     function handleCredentialResponse(response) {
       if (!response || !response.credential) {
@@ -461,14 +368,8 @@
         return;
       }
 
-      loginContent.hidden = true;
-      successContent.hidden = false;
-      document.getElementById("success-title").focus();
+      window.location.assign("accueil.html");
     }
-
-    document.getElementById("return-button").addEventListener("click", () => {
-      window.location.reload();
-    });
 
     window.addEventListener("load", () => {
       if (!window.google || !window.google.accounts || !window.google.accounts.id) {
